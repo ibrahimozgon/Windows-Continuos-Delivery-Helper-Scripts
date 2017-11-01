@@ -6,7 +6,7 @@ set /a retryNumber=0
 set /a retryNumber=%retryNumber%+1
 
 :: Start App Pool
-CALL C:\Publish\PPsExec\PsExec.exe \\%1  -s -i C:\windows\system32\inetsrv\appcmd.exe start apppool %2
+CALL %%PsExecInstallationpath%%\PsExec.exe \\%1  -s -i C:\windows\system32\inetsrv\appcmd.exe start apppool %2
 IF %ERRORLEVEL% NEQ 0 (
     IF %reTryNumber% LSS 4 (
         echo There was an error %ERRORLEVEL% RETRYAPPOOL again! %reTryNumber% 1>&2
@@ -22,7 +22,7 @@ set /a retryNumber=0
 :RETRYSITE
 set /a retryNumber=%retryNumber%+1
 :: Start IIS Site
-CALL C:\Publish\PPsExec\PsExec.exe \\%1  -s -i C:\windows\system32\inetsrv\appcmd.exe start site %2
+CALL %%PsExecInstallationpath%%\PsExec.exe \\%1  -s -i C:\windows\system32\inetsrv\appcmd.exe start site %2
 IF %ERRORLEVEL% NEQ 0 (
     IF %reTryNumber% LSS 4 (
         echo There was an error %ERRORLEVEL% RETRYSITE again! %reTryNumber% 1>&2

@@ -1,4 +1,7 @@
 ::We use this for building asset packages.
+::1- Gulp command
+::2- Asset folder path
+::3- To Copy Build Path
 cd %2 
 CALL npm install 
 IF %ERRORLEVEL% NEQ 0 exit /b %ERRORLEVEL%

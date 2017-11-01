@@ -2,5 +2,5 @@
 ::%* => ProjName MsBuild Parameters
 
 ::Build Project
-C:\Publish\MsBuild\MSBuild\15.0\Bin\MsBuild.exe %*
+%%MsBuildInstallationPath%%\MsBuild.exe %*
 

@@ -5,7 +5,7 @@ set /a retryNumber=0
 :RETRYSITE
 set /a retryNumber=%retryNumber%+1
 :: Stop IIS Site
-CALL C:\Publish\PPsExec\PsExec.exe \\%1  -s -i C:\windows\system32\inetsrv\appcmd.exe stop site %2
+CALL %%PsExecInstallationpath%%\PsExec.exe \\%1  -s -i C:\windows\system32\inetsrv\appcmd.exe stop site %2
 IF %ERRORLEVEL% NEQ 0 (
     IF %reTryNumber% LSS 4 (
         echo There was an error '%ERRORLEVEL%' RETRYSITE again! %reTryNumber% 1>&2
@@ -21,7 +21,7 @@ set /a retryNumber=0
 :RETRYAPPOOL
 set /a retryNumber=%retryNumber%+1
 :: Stop App Pool (removes lock on file system)
-CALL C:\Publish\PPsExec\PsExec.exe \\%1  -s -i C:\windows\system32\inetsrv\appcmd.exe stop apppool %2
+CALL %%PsExecInstallationpath%%\PsExec.exe \\%1  -s -i C:\windows\system32\inetsrv\appcmd.exe stop apppool %2
 if %ERRORLEVEL% NEQ 1062 (
     IF %ERRORLEVEL% NEQ 0 (
         IF %reTryNumber% LSS 4 (

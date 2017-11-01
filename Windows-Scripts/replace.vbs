@@ -1,4 +1,6 @@
 ' We use this for replacing development config file values with production values.'
+'1 value to be changed'
+'2 future value' 
 Const ForReading = 1
 
 Const ForWriting = 2

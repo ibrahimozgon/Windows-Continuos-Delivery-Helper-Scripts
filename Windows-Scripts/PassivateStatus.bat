@@ -2,7 +2,7 @@
 ::%1 => Site Path
 
 ::Change Web Site Status
-CALL Robocopy C:\Publish\Statuses\Passive %1 /NFL /NDL /NJH /nc /ns /np
+CALL Robocopy %%PassiveFilesPath%% %1 /NFL /NDL /NJH /nc /ns /np
 
 IF %ERRORLEVEL% LSS 8 (
     :: Wait 60 Seconds
